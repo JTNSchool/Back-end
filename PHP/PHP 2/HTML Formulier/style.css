@@ -1,0 +1,33 @@
+body {
+    background-color: rgb(80,80,80);
+    color: white;
+    font-family: "Franklin Gothic Book";
+}
+
+form {
+    padding: 25px;
+    font-size: large;
+}
+
+input {
+    background-color: rgb(60,60,60);
+    border: solid 2px black;
+    border-radius: 5px;
+    color: white;
+    margin: 2px;
+}
+
+label {
+    color: white;
+    display: inline-block;
+    width: 50px;
+}
+
+input {
+    font-size: large;
+
+    &[type = "submit"] {
+        margin: 10px;
+
+    }
+}

@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+body {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+h1 {
+    color: white;
+    font-family: "Bookman Old Style";
+    font-size: xxx-large;
+    margin: 15px;
+}
+
+#morning {
+    background-image: url("Images/morning.png") ;
+}
+#afternoon {
+    background-image: url("Images/afternoon.png") ;
+}
+#evening {
+    background-image: url("Images/evening.png") ;
+}
+#night {
+    background-image: url("Images/night.png") ;
+}
