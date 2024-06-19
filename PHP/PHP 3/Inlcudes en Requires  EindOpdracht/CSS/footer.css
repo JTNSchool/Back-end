@@ -1,0 +1,32 @@
+footer {
+    display: flex;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    font-family: "Arial";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    justify-content: center;
+    text-align: center;
+}
+
+.footerbar ul {
+    list-style: none;
+    display: flex;
+}
+
+.footerbar li {
+    margin: 0 15px;
+}
+
+.footerbar a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 25px;
+}
+
+.footerbar a:hover {
+    color: red;
+}

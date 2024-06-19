@@ -1,0 +1,125 @@
+DISTINCT
+
+Met welke query kun je laten zien welke verschillende dieren er bestaan?
+SELECT DISTINCT type FROM `rubyquest`.`animal`
+
+Met welke query kun je laten zien welke profession er zijn bij de NPC’s?
+SELECT DISTINCT profession FROM `rubyquest`.`npc`
+ 
+
+AND, OR and NOT
+
+Met welke query kun je de creatures laten zien die voldoen aan ‘Killer Bee’ of ‘Orc’?
+SELECT * FROM `rubyquest`.`creature` WHERE NAME like'killer%' OR NAME='Orc'
+
+Met welke query kun je de dieren laten zien die voldoen aan snelheid 6 en verdediging 5?
+SELECT * FROM `rubyquest`.`animal` WHERE speed=6 AND defense=5
+
+Met welke query kun je alle dieren laten zien behalve de schapen?
+SELECT * FROM `rubyquest`.`animal` WHERE TYPE !='sheep'
+
+Met welke query kun je het aantal dieren laten zien die voldoen aan ‘Wolf’ of ‘Bear’ of ‘Eagle’
+SELECT COUNT(*) FROM `rubyquest`.`animal` WHERE TYPE = 'wolf' OR TYPE = 'bear' or TYPE = 'eagle' 
+
+Met welke query kun je de personen laten zien waarvoor geldt attack, defense en agility voor alle drie de waarde gelijk aan 10?
+SELECT * FROM `rubyquest`.`person` WHERE attack = 10 and defense = 10 AND agility = 10
+
+Met welke query kun je de steden laten zien die vallen in regio 1 of 2?
+SELECT * FROM `rubyquest`.`city` WHERE region = 1 OR region = 2
+
+Met welke query kun je alle hero’s laten zien met intelligence anders dan 30 of 90?
+SELECT * FROM `rubyquest`.`hero` WHERE intelligence != 30 OR intelligence != 90
+
+
+MIN and MAX
+
+Met welke query kun je zien welke minimale snelheid de dieren hebben?
+SELECT min(speed) FROM `rubyquest`.`animal` min
+
+Met welke query kun je zien wat de snelheid is van het snelste dier?
+SELECT max(speed) FROM `rubyquest`.`animal`
+
+Met welke query kun je laten zien wat de minimale attack van een wapen is?
+SELECT MIN(attack) FROM `rubyquest`.`weapon`
+
+Met welke query kun je laten zien hoeveel het duurste wapen kost?
+SELECT max(price) FROM `rubyquest`.`weapon`
+
+IN
+
+Met welke query kun je de creatures laten zien die voldoen aan ‘Killer Bee’ of ‘Orc’?
+SELECT * FROM `rubyquest`.`creature` WHERE name IN ("Killer Bee", "Orc")
+
+Met welke query kun je het aantal dieren laten zien gesorteerd op alfabet die voldoen aan ‘Wolf’ of ‘Bear’ of ‘Eagle’
+SELECT type, COUNT(type) FROM `rubyquest`.`animal`
+WHERE type IN ("Bear", "Eagle", "Wolf")
+GROUP BY type
+
+Met welke query kun je alle creatures laten zien behalve de ‘Killer Bee’ en de ‘Orc’?
+SELECT * FROM `rubyquest`.`creature` WHERE name not IN ("killer bee", "orc")
+
+Met welke query kun je alle namen van de steden laten zien die vallen in de regio South Groval of Nort Groval?
+SELECT * FROM `rubyquest`.`city` WHERE region = 4 | 
+
+SELECT city.name FROM region
+JOIN city on city.region=region.id
+WHERE region.name = 'North Groval'  
+
+Met welke query kun je vraag 4 sorteren op alfabet?
+order BY name
+
+Met welke query kun je bepalen hoeveel steden er vallen binnen de region South Groval of Nort Groval?
+SELECT COUNT(city.id) FROM region
+JOIN city on city.region=region.id
+WHERE region.name = 'North Groval'  OR region.name = 'south Groval'
+
+
+
+BETWEEN and SQL operators
+
+Met welke query kun je de wapens laten zien met een prijs van 100 – 1000?
+SELECT * FROM weapon WHERE price BETWEEN 100 AND 1000
+
+Met welke query kun je de wapens laten zien met een attack van 300 – 600?
+SELECT * FROM weapon WHERE attack BETWEEN 300 AND 600
+
+Met welke query kun je het aantal dieren zien die een defense hebben van 7 – 9?
+SELECT COUNT(*) FROM animal WHERE defense BETWEEN 7 AND 9
+
+Met welke query kun je de personen laten zien die meer dan 1800 goud hebben?
+SELECT * FROM person WHERE gold > 1800
+
+Met welke query kun je de personen laten zien die meer dan 1850 goud hebben?
+SELECT * FROM person WHERE gold > 1850
+
+Met welke query kun je de personen laten zien die 1850 of meer goud hebben?
+SELECT * FROM person WHERE gold >= 1850
+
+Met welke query kun je de wapens laten zien die minder dan 300 kosten?
+SELECT * FROM weapon WHERE price < 300
+
+LIKE
+
+Met welke query kan je alle personen laten zien de beginnen met de letter B?
+SELECT * FROM person WHERE NAME LIKE "b%"
+
+Met welke query kan je alle dieren laten zien waar de letter a in zit?
+SELECT * FROM animal WHERE type LIKE "%a%"
+
+Met welke query kan je alle dieren laten zien waar achter de letter e een letter a in zit?
+SELECT * FROM animal WHERE type LIKE "%ea%"
+
+Met welke query kan je alle wapens laten zien die eindigen op de letter d?
+SELECT * FROM weapon WHERE name LIKE "%d"
+ 
+
+TOP, LIMIT or ROWNUM
+
+Met welke query kun je de eerste 10 personen laten zien
+SELECT * FROM person LIMIT 10
+
+Met welke query kun je de 5 duurste wapens laten zien?
+SELECT * FROM weapon ORDER BY price desc LIMIT 5
+
+Met welke query kun je de beste 3 wapens laten zien die een attack hebben van 700 – 900?
+SELECT * FROM weapon where attack BETWEEN 700 AND 900 ORDER BY price desc LIMIT 3
